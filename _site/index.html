@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Crafted Live Foundation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#fdfcfb] text-[#333] font-sans leading-relaxed">
+  <header class="bg-[#EEE8E0] text-[#623D25] py-10 px-2 flex flex-row justify-center items-center relative">
+    <img src="/assets/images/Logo.jpg" alt="Crafted Live logo"
+         class="w-32 h-auto absolute left-4 top-1/2 -translate-y-1/2 hidden md:block">
+    <div class="flex flex-col items-center w-full mt-1">
+      <h1 class="m-0 text-4xl font-bold text-center">Crafted Live Foundation, Inc.</h1>
+      <p class="mt-2 text-center">Empowering Artisans. Celebrating Heritage. Creating Responsibly.</p>
+    </div>
+  </header>
+  <div class="bg-[#EEE8E0] w-full shadow-sm">
+    <nav class="text-[#623D25] py-1 px-2 flex flex-row items-center relative" style="max-width:48rem;margin-left:auto;margin-right:auto;">
+      <button id="menu-toggle" class="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-2 focus:outline-none transition-transform duration-300">
+        <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+      <ul id="menu-list" class="text-center flex flex-col md:flex-row justify-start items-center gap-2 md:gap-4 md:static md:flex md:flex-row bg-white md:bg-[#EEE8E0] border md:border-0 rounded-lg md:rounded-none shadow md:shadow-none w-11/12 md:w-auto absolute md:relative left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 top-full md:top-auto z-20 transition-all duration-300 ease-in-out md:opacity-100 opacity-0 pointer-events-none md:pointer-events-auto">
+        <li><a href="/" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Home</a></li>
+        <li><a href="/progress" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Progress</a></li>
+        <li><a href="/about" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">About</a></li>
+        <!-- <li><a href="/projects" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Projects</a></li> -->
+        <li><a href="/contact" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Contact</a></li>
+      </ul>
+      <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuList = document.getElementById('menu-list');
+        const menuIcon = document.getElementById('menu-icon');
+        let menuOpen = false;
+        menuToggle.addEventListener('click', () => {
+          menuList.classList.toggle('opacity-0');
+          menuList.classList.toggle('pointer-events-none');
+          menuOpen = !menuOpen;
+          if(menuOpen) {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+          } else {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          }
+        });
+        function handleResize() {
+          if(window.innerWidth >= 768) {
+            menuList.classList.remove('opacity-0', 'pointer-events-none');
+            menuOpen = false;
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          } else {
+            menuList.classList.add('opacity-0', 'pointer-events-none');
+          }
+        }
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
+      </script>
+    </nav>
+  </div>
+  <main class="p-8 max-w-3xl mx-auto bg-[#fdfcfb]">
+    <section class="mb-12">
+  <h2 class="text-[#b38728] border-b-2 border-[#e5d6b8] pb-1 text-2xl font-semibold mb-4">Mission</h2>
+  <p>
+    To connect global artisans directly with conscious customers, enabling collaborative jewelry creation rooted in transparency, ethical sourcing, and cultural authenticity. We believe jewelry is not just an accessory, but a story—crafted by skilled hands, shaped by culture, and driven by purpose. 
+    <br /><br />
+    Crafted Live exists to protect and promote this legacy by supporting artisans and connecting them to meaningful markets. While we celebrate the heritage of handcrafted jewelry, we also embrace modern techniques—ensuring that even contemporary designs receive the final artistic touch from skilled hands. Our initial focus is on colored gemstone jewelry, combining tradition, elegance, and originality.
+    <br /><br />
+    We honor the full journey of a gem—from the miner who unearths it, to the faceter who reveals its brilliance, and finally to the artisan who gives it a soul through design. Each piece we support is a collaboration across this chain, highlighting the beauty of cooperation and craftsmanship.
+  </p>
+</section>
+<section class="mb-12">
+  <h2 class="text-[#b38728] border-b-2 border-[#e5d6b8] pb-1 text-2xl font-semibold mb-4">Vision</h2>
+  <p>A world where handcrafted jewelry sustains artisan livelihoods, preserves heritage, and inspires meaningful personal adornment.</p>
+</section>
+<section class="mb-12">
+  <h2 class="text-[#b38728] border-b-2 border-[#e5d6b8] pb-1 text-2xl font-semibold mb-4">Core Values</h2>
+  <ul class="list-none pl-4">
+    <li class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-[#b38728] before:font-bold">Empowerment – Uplifting artisans and their communities</li>
+    <li class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-[#b38728] before:font-bold">Transparency – Full visibility into sourcing, pricing, and process</li>
+    <li class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-[#b38728] before:font-bold">Sustainability – Ethical and eco-conscious choices</li>
+    <li class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-[#b38728] before:font-bold">Education – Gemstone and jewelry knowledge for all</li>
+  </ul>
+</section>
+
+  </main>
+  <footer class="text-center p-4 text-sm bg-[#f3f1ee] text-[#888] mt-8">
+    <p>Contact us: <a href="mailto:info@craftedlive.org" class="underline text-[#b38728]">info@craftedlive.org</a></p>
+    <p>Content licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" class="underline text-[#b38728]">CC BY-NC 4.0</a>.</p>
+    <p>&copy; 2025 Crafted Live Foundation, Inc. All rights reserved.</p>
+    <p class="text-xs text-[#bbb]">Site content and design assisted by ChatGPT</p>
+  </footer>
+</body>
+</html>

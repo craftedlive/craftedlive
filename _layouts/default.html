@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}Crafted Live Foundation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#fdfcfb] text-[#333] font-sans leading-relaxed">
+  <header class="bg-[#EEE8E0] text-[#623D25] py-10 px-2 flex flex-row justify-center items-center relative">
+    <img src="{{ '/assets/images/Logo.jpg' | relative_url }}" alt="Crafted Live logo"
+         class="w-32 h-auto absolute left-4 top-1/2 -translate-y-1/2 hidden md:block">
+    <div class="flex flex-col items-center w-full mt-1">
+      <h1 class="m-0 text-4xl font-bold text-center">Crafted Live Foundation, Inc.</h1>
+      <p class="mt-2 text-center">Empowering Artisans. Celebrating Heritage. Creating Responsibly.</p>
+    </div>
+  </header>
+  <div class="bg-[#EEE8E0] w-full shadow-sm">
+    <nav class="text-[#623D25] py-1 px-2 flex flex-row items-center relative" style="max-width:48rem;margin-left:auto;margin-right:auto;">
+      <button id="menu-toggle" class="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-2 focus:outline-none transition-transform duration-300">
+        <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+      <ul id="menu-list" class="text-center flex flex-col md:flex-row justify-start items-center gap-2 md:gap-4 md:static md:flex md:flex-row bg-white md:bg-[#EEE8E0] border md:border-0 rounded-lg md:rounded-none shadow md:shadow-none w-11/12 md:w-auto absolute md:relative left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 top-full md:top-auto z-20 transition-all duration-300 ease-in-out md:opacity-100 opacity-0 pointer-events-none md:pointer-events-auto">
+        <li><a href="{{ '/' | relative_url }}" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Home</a></li>
+        <li><a href="{{ '/progress' | relative_url }}" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Progress</a></li>
+        <li><a href="{{ '/about' | relative_url }}" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">About</a></li>
+        <!-- <li><a href="{{ '/projects' | relative_url }}" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Projects</a></li> -->
+        <li><a href="{{ '/contact' | relative_url }}" class="block px-4 py-2 font-semibold hover:bg-[#f3e6c6] hover:text-[#b38728] rounded transition">Contact</a></li>
+      </ul>
+      <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuList = document.getElementById('menu-list');
+        const menuIcon = document.getElementById('menu-icon');
+        let menuOpen = false;
+        menuToggle.addEventListener('click', () => {
+          menuList.classList.toggle('opacity-0');
+          menuList.classList.toggle('pointer-events-none');
+          menuOpen = !menuOpen;
+          if(menuOpen) {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+          } else {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          }
+        });
+        function handleResize() {
+          if(window.innerWidth >= 768) {
+            menuList.classList.remove('opacity-0', 'pointer-events-none');
+            menuOpen = false;
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          } else {
+            menuList.classList.add('opacity-0', 'pointer-events-none');
+          }
+        }
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
+      </script>
+    </nav>
+  </div>
+  <main class="p-8 max-w-3xl mx-auto bg-[#fdfcfb]">
+    {{ content }}
+  </main>
+  <footer class="text-center p-4 text-sm bg-[#f3f1ee] text-[#888] mt-8">
+    <p>Contact us: <a href="mailto:info@craftedlive.org" class="underline text-[#b38728]">info@craftedlive.org</a></p>
+    <p>Content licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" class="underline text-[#b38728]">CC BY-NC 4.0</a>.</p>
+    <p>&copy; 2025 Crafted Live Foundation, Inc. All rights reserved.</p>
+    <p class="text-xs text-[#bbb]">Site content and design assisted by ChatGPT</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+title: Crafted Live Foundation
+email: info@craftedlive.org
+description: >-
+  Empowering Artisans. Celebrating Heritage. Creating Responsibly.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+markdown: kramdown
+permalink: pretty
+collections:
+  posts:
+    output: true
